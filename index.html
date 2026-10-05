@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gen 3 Poképedia</title>
+    <link rel="icon" type="image/png" href="assets/images/pokeball.svg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body id="top">
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="brand">
+        <img id="pokeball" src="assets/images/pokeball.svg" alt="Poké Ball">
+        <h1>Gen 3 Poképedia</h1>
+      </div>
+      <nav class="main-nav">
+        <button data-page="home">Home</button>
+        <button data-page="pokedex">Pokédex</button>
+        <button data-page="about">About</button>
+        <button data-page="contact">Contact</button>
+      </nav>
+      <button id="music-button">Music: ON</button>
+    </header>
+
+    <main>
+
+      <!-- HOME PAGE -->
+      <section id="home" class="page">
+        <article class="hero">
+          <div>
+            <img class="logo" src="assets/images/pokemon-logo.png" alt="Pokémon logo">
+            <h2 id="welcome">Welcome to the Pokédex!</h2>
+            <p>Stats, types, and descriptions for every Pokémon in Ruby, Sapphire, and Emerald.</p>
+            <button class="primary" data-page="pokedex">Browse the Pokédex</button>
+          </div>
+          <img class="hero-image" src="assets/images/hero.png" alt="Hero image">
+        </article>
+
+        <h2 class="section-title">Choose your version</h2>
+        <div class="cards">
+          <article class="card" data-game="ruby">
+            <img src="assets/images/ruby.png" alt="Pokémon Ruby">
+            <h3>Pokémon Ruby</h3>
+            <p>Team Magma and the mighty Groudon.</p>
+            <button data-page="ruby">Open Pokédex</button>
+          </article>
+          <article class="card" data-game="sapphire">
+            <img src="assets/images/sapphire.png" alt="Pokémon Sapphire">
+            <h3>Pokémon Sapphire</h3>
+            <p>Team Aqua and the mighty Kyogre.</p>
+            <button data-page="sapphire">Open Pokédex</button>
+          </article>
+          <article class="card" data-game="emerald">
+            <img src="assets/images/emerald.png" alt="Pokémon Emerald">
+            <h3>Pokémon Emerald</h3>
+            <p>Both teams and the sky-high Rayquaza.</p>
+            <button data-page="emerald">Open Pokédex</button>
+          </article>
+        </div>
+
+        <article class="map-box">
+          <div>
+            <h2>Explore Hoenn</h2>
+            <p>Click a part of the map to open that version's Pokédex.</p>
+          </div>
+          <img src="assets/images/hoenn-map.png" alt="Map of Hoenn" usemap="#hoenn-map" width="600" height="400">
+          <map name="hoenn-map">
+            <area shape="rect" coords="0,0,200,400" href="#" data-page="ruby" alt="Pokémon Ruby">
+            <area shape="rect" coords="200,0,400,400" href="#" data-page="emerald" alt="Pokémon Emerald">
+            <area shape="rect" coords="400,0,600,400" href="#" data-page="sapphire" alt="Pokémon Sapphire">
+          </map>
+        </article>
+      </section>
+
+      <!-- POKEDEX PAGE -->
+      <section id="pokedex" class="page">
+        <aside class="side-index">
+          <h3>Version</h3>
+          <div class="versions">
+            <button data-page="ruby" data-game="ruby">Ruby</button>
+            <button data-page="sapphire" data-game="sapphire">Sapphire</button>
+            <button data-page="emerald" data-game="emerald">Emerald</button>
+          </div>
+          <h3>Jump to letter</h3>
+          <div id="letters"></div>
+        </aside>
+
+        <div>
+          <div class="dex-title">
+            <h2 id="game-title"></h2>
+            <ul id="game-info"></ul>
+          </div>
+
+          <form id="search-form">
+            <input type="search" id="search-box" placeholder="Search by name or number">
+            <select id="dex-select">
+              <option value="hoenn">Hoenn Dex (202)</option>
+              <option value="national">National Dex (386)</option>
+            </select>
+          </form>
+
+          <div id="pokemon-list"></div>
+        </div>
+
+        <dialog id="detail"></dialog>
+      </section>
+
+      <!-- ABOUT PAGE -->
+      <section id="about" class="page">
+        <h2 class="page-title">About Us</h2>
+        <div class="two-columns">
+          <article class="panel">
+            <h3>Mission</h3>
+            <p>Give old fans and newcomers clear, accurate information about every Pokémon in Ruby, Sapphire, and Emerald.</p>
+            <img class="cute-image" src="assets/images/cute.png">
+          </article>
+          <article class="panel">
+            <h3>Vision</h3>
+            <p>Gen 3 Poképedia aims to build a targeted, visually appealing digital encyclopedia dedicated strictly to the original Hoenn experience across Pokémon Ruby, Sapphire, and Emerald.</p>
+            <h4>Backstory</h4>
+            <p>Created to fill the gap left by modern platforms that mix generation data, this site was built from the ground up using modern HTML5 and CSS Grid to offer a clean, dedicated reference tool for classic Hoenn fans.</p>
+            <h4>Future</h4>
+            <p>The platform will continue to expand its Hoenn coverage with interactive region maps, full move sets, and comprehensive character guides to serve as the ultimate retro reference tool.</p>
+          </article>
+        </div>
+        <article class="panel">
+          <h3>FAQ</h3>
+          <details>
+            <summary>Why are FireRed and LeafGreen missing?</summary>
+            <p>This site focuses only on the original Hoenn games.</p>
+          </details>
+          <details>
+            <summary>Where does the Pokémon data come from?</summary>
+            <p>Stats, types, descriptions, and sprites load from the free PokéAPI.</p>
+          </details>
+          <details>
+            <summary>What is the National Dex option?</summary>
+            <p>It lists all 386 Generation 3 Pokémon instead of only the 202 in Hoenn.</p>
+          </details>
+        </article>
+      </section>
+
+      <!-- CONTACT PAGE -->
+      <section id="contact" class="page">
+        <h2 class="page-title">Contact Us</h2>
+        <div class="two-columns">
+          <article class="panel">
+            <h3>Team</h3>
+            <ul>
+              <li>AETHAN CARL JESU BAUI</li>
+              <li>VIC ALDREI GUADALQUIVER</li>
+              <li>KEN AIDEN LIQUE</li>
+              <li>RAPHAEL NATHAN SANTIAGO</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Socials / E-mail</h3>
+            <p>E-mail: pokepideateam@email.com</p>
+            <p>Facebook: facebook.com/pokepidea</p>
+            <h3>Contact No.</h3>
+            <p>+63 061 067 4200</p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-line"></div>
+      <div class="footer-grid">
+        <div>
+          <h3 id="footer-brand">Gen 3 Poképedia</h3>
+          <p>A fan-made encyclopedia for the original Hoenn games: Pokémon Ruby, Sapphire, and Emerald.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="#" data-page="home">Home</a>
+          <a href="#" data-page="pokedex">Pokédex</a>
+          <a href="#" data-page="about">About</a>
+          <a href="#" data-page="contact">Contact</a>
+        </div>
+        <div>
+          <h4>Versions</h4>
+          <a href="#" data-page="ruby">Pokémon Ruby</a>
+          <a href="#" data-page="sapphire">Pokémon Sapphire</a>
+          <a href="#" data-page="emerald">Pokémon Emerald</a>
+        </div>
+        <div>
+          <h4>Get in touch</h4>
+          <p>pokepideateam@email.com</p>
+          <p>+63 061 067 4200</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Gen 3 Poképedia. Data and sprites from PokéAPI.</p>
+        <p>Fan project, not affiliated with Nintendo, Game Freak, or The Pokémon Company.</p>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+
+
+
+    <audio id="music" loop>
+      <source src="assets/sounds/background-music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="click-sound">
+      <source src="assets/sounds/click.wav" type="audio/wav">
+    </audio>
+    <audio id="hover-sound">
+      <source src="assets/sounds/hover.wav" type="audio/wav">
+    </audio>
+
+
+    <p id="toast"></p>
+    <script src="script.js"></script>
+  </body>
+</html>
